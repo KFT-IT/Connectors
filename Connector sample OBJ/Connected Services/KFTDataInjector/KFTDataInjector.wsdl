@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="LoginWithResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginWithResponseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginWithResponseResult" type="tns:TypeKFTReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TypeKFTReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="isSuccesful" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoginResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Logout">
+        <s:complexType />
+      </s:element>
+      <s:element name="LogoutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LogoutResult" type="tns:TypeKFTReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isLoginDone">
+        <s:complexType />
+      </s:element>
+      <s:element name="isLoginDoneResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="isLoginDoneResult" type="tns:TypeKFTReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertKFTStoryData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AllStories" type="tns:ArrayOfTypeInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTypeInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TypeInfo" nillable="true" type="tns:TypeInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TypeInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ExtProviderName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExtSerialCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SrcDateTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="StoryInfo" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="ST_Status" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="NS_GpsQuality" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="Flags" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="Latitude" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Longitude" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Altitude" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Speed" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="Direction" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="InputValid" type="s:unsignedInt" />
+          <s:element minOccurs="1" maxOccurs="1" name="InputValue" type="s:unsignedInt" />
+          <s:element minOccurs="1" maxOccurs="1" name="FunValid" type="s:unsignedInt" />
+          <s:element minOccurs="1" maxOccurs="1" name="FunValue" type="s:unsignedInt" />
+          <s:element minOccurs="1" maxOccurs="1" name="OutputValid" type="s:unsignedInt" />
+          <s:element minOccurs="1" maxOccurs="1" name="OutputValue" type="s:unsignedInt" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumAnalogValid" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="AnalogValue0" type="s:unsignedInt" />
+          <s:element minOccurs="1" maxOccurs="1" name="AnalogValue1" type="s:unsignedInt" />
+          <s:element minOccurs="1" maxOccurs="1" name="AnalogValue2" type="s:unsignedInt" />
+          <s:element minOccurs="1" maxOccurs="1" name="AnalogValue3" type="s:unsignedInt" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InsertKFTStoryDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertKFTStoryDataResult" type="tns:TypeKFTReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LoginWithResponseSoapIn">
+    <wsdl:part name="parameters" element="tns:LoginWithResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginWithResponseSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginWithResponseResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogoutSoapIn">
+    <wsdl:part name="parameters" element="tns:Logout" />
+  </wsdl:message>
+  <wsdl:message name="LogoutSoapOut">
+    <wsdl:part name="parameters" element="tns:LogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="isLoginDoneSoapIn">
+    <wsdl:part name="parameters" element="tns:isLoginDone" />
+  </wsdl:message>
+  <wsdl:message name="isLoginDoneSoapOut">
+    <wsdl:part name="parameters" element="tns:isLoginDoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertKFTStoryDataSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertKFTStoryData" />
+  </wsdl:message>
+  <wsdl:message name="InsertKFTStoryDataSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertKFTStoryDataResponse" />
+  </wsdl:message>
+  <wsdl:portType name="KFTDataInjectorSoap">
+    <wsdl:operation name="LoginWithResponse">
+      <wsdl:input message="tns:LoginWithResponseSoapIn" />
+      <wsdl:output message="tns:LoginWithResponseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:input message="tns:LogoutSoapIn" />
+      <wsdl:output message="tns:LogoutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="isLoginDone">
+      <wsdl:input message="tns:isLoginDoneSoapIn" />
+      <wsdl:output message="tns:isLoginDoneSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertKFTStoryData">
+      <wsdl:input message="tns:InsertKFTStoryDataSoapIn" />
+      <wsdl:output message="tns:InsertKFTStoryDataSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="KFTDataInjectorSoap" type="tns:KFTDataInjectorSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LoginWithResponse">
+      <soap:operation soapAction="http://tempuri.org/LoginWithResponse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap:operation soapAction="http://tempuri.org/Logout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isLoginDone">
+      <soap:operation soapAction="http://tempuri.org/isLoginDone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertKFTStoryData">
+      <soap:operation soapAction="http://tempuri.org/InsertKFTStoryData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="KFTDataInjectorSoap12" type="tns:KFTDataInjectorSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LoginWithResponse">
+      <soap12:operation soapAction="http://tempuri.org/LoginWithResponse" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap12:operation soapAction="http://tempuri.org/Logout" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isLoginDone">
+      <soap12:operation soapAction="http://tempuri.org/isLoginDone" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertKFTStoryData">
+      <soap12:operation soapAction="http://tempuri.org/InsertKFTStoryData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="KFTDataInjector">
+    <wsdl:port name="KFTDataInjectorSoap" binding="tns:KFTDataInjectorSoap">
+      <soap:address location="http://connector.getposition.com:8099/KFTDataInjector.asmx" />
+    </wsdl:port>
+    <wsdl:port name="KFTDataInjectorSoap12" binding="tns:KFTDataInjectorSoap12">
+      <soap12:address location="http://connector.getposition.com:8099/KFTDataInjector.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

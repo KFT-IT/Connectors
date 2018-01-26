@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://connector.getposition.com:8099/KFTDataInjector.asmx?wsdl" docRef="http://connector.getposition.com:8099/KFTDataInjector.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://connector.getposition.com:8099/KFTDataInjector.asmx" xmlns:q1="http://tempuri.org/" binding="q1:KFTDataInjectorSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://connector.getposition.com:8099/KFTDataInjector.asmx" xmlns:q2="http://tempuri.org/" binding="q2:KFTDataInjectorSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>
